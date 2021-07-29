@@ -1,8 +1,5 @@
 # androidDeviceConvertToNoteBook
 
-androidDeviceConvertToNoteBook - Setting up the development environment on your Android device
-
-
 ############################################################
 
   Setting up the development environment on your Android device
