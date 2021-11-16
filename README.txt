@@ -81,29 +81,39 @@
    6.4. # apt install vim
    6-5. $ vi vnc.sh 파일 생성하여 아래 명령어 넣어 실행 권한 부여
           vncserver-stop && vncserver-start
-          chmod 755 vnc.sh
+          chmod 755 vnc.sh	  
    6-6. $ ./vnc.sh (vnc 서비스 시작)   
    	위와 같이 수동 실행 하거나 
    	vi ~/.profile 파일 하단에 아래 구문 추가 하여 자동 실행 처리 
-   	vncserver-stop & vncserver-start 
-   6-7. vnc 접속 시 cairo-dock 자동 실행 오류 해결법
+   	vncserver-stop & vncserver-start 	
+	
+   6-7. connect bVNC 접속 
+	   localhost  5901
+	   user_id  : root 계정 (우분투 계정)
+	   user_pw  : openbox 설치 중 설정 한 vncserver 패스워드 값
+	   
+   [[ 문제점 ]]
+     bVNC 접속시  검은 바탕화면에 cairo-dock 실행도 되지 않아 아무 것도 출력 안되는 현상이 생김 
+     그럴 경우 아래 단계를 진행 	
+	
+   6-8. vnc 접속 시 cairo-dock 자동 실행 오류 해결법
 	vnc 접속 시 접속은 되나 검정 바탕화면에 cairo-dock 자동실행이 안되는 경우 
-	
-	vi ~/.profile 파일 맨 마직막 부분에 아래 두 구문 추가
-	/root/.vnc/xstartup 파일 내용에서 dbus-launch cairo-dock 구문 #으로 주석 처리
-	
-	nohup cairo-dock 1>/dev/null 2>&1 &
+	vi ~/.profile 파일 맨 마직막 부분에 아래 구문 추가
 	/root/.vnc/xstartup
 	
-   6-8. vncserver 해상도 설정 (접속 환경에 맞는 해상도로 조정)
+	/root/.vnc/xstartup 파일 내용에서 
+	dbus-launch cairo-dock 구문 #으로 주석 처리 후 아래 내용 삽입
+	nohup cairo-dock 1>/dev/null 2>&1 &
+	
+	
+   6-9. vncserver 해상도 설정 (접속 환경에 맞는 해상도로 조정)
    	vi .profile 하단에 아래 구문 추가 
 	$ xrandr -s 1920x1080
 	
 	=======================================
 		
-   	ex) .profile 파일 최종 수정 내용 (맨 하단에 아래 4줄 추가 처리)        
+   	ex) .profile 파일 최종 수정 내용 
 	vncserver-stop && vncserver-start
-	nohup cairo-dock 1>/dev/null 2>&1 &
 	/root/.vnc/xstartup
 	xrandr -s 1920x1080
 	
@@ -117,6 +127,7 @@
 	export XAUTHORITY
 	dbus-launch openbox
 	#dbus-launch cairo-dock  (주석처리)
+	nohup cairo-dock 1>/dev/null 2>&1 &
 	feh --bg-fill /usr/share/wallpaper.jpg
 	
 7.connect bVNC
@@ -125,6 +136,8 @@
    user_pw  : openbox 설치 중 설정 한 vncserver 패스워드 값
    
    * 접속 후 cairo-dock 테마 변경 및 메뉴 구성 취향에 맞게 설정 
+   
+   
     
 8. Ubuntu 기본 환경 설정 및 개발 프로그램 설치 (arm 버젼으로 설치해야 함)
    8-0. .bashrc 파일에 아래 내용 추가 
