@@ -7,6 +7,11 @@
 ############################################################
 
 1.Install Termux (google player)
+  Termux가 더이상 구글플레이앱에서 최신 지원 안함 
+  구글플레이에서 설치해도 상관은 없으나 최신 버젼 앱 설치 하려면 아래 site에서 com.termux_117.apk 다운받아 설치
+  https://f-droid.org/packages/com.termux/
+   
+  
 
 2.Setting Termux
   2-1. 안드로이드 앱 설정 - termux 앱 권한 저장공간 허용 
