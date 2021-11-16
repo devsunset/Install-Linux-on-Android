@@ -27,7 +27,8 @@
        $ termux-setup-storage
   
   2-3. $ pkg update && pkg upgrade
-  
+   	(apk파일 직접 다운받아 설치 한 경우 아래 오류 발생 안하는 듯함 구글 플레이에서 설치한  예전 버젼에서 발생)
+	
 	위 명령어 실행 시  아래와 같은 에러 문구 출력되며 설치 되지 않는 경우 (android+7)
 	https://github.com/termux/termux-packages/issues/6726 내용 참고 하여 termux-change-repo 명령어로 repo 설정 
 	하거나 아래 명령어 실행하여 문제되는 repo 제거 - repo 설정 변경 추천 
@@ -61,7 +62,7 @@
 
 4.Install bVNC: Secure VNC Viewer (google player)
 
-----------------------------------------------------
+-----------------------------------------------------------------------------
 
 5.Install ubuntu
   5-1. Termux execute
