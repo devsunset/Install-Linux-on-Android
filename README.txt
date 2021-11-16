@@ -11,10 +11,10 @@
   구글플레이에서 설치해도 상관은 없으나 최신 버젼 앱 설치 하려면 아래 site에서 com.termux_117.apk 다운받아 설치
   https://f-droid.org/packages/com.termux/
    
-  
-
 2.Setting Termux
   2-1. 안드로이드 앱 설정 - termux 앱 권한 저장공간 허용 
+  	Android Settings --> Applications --> Termux --> Permissions -> 권한 허용
+	[참고 내용]	
         https://wiki.termux.com/wiki/Termux-setup-storage
         Android 11
 	You may get "Permission denied" error when trying to access shared storage, even though the permission has been granted.
@@ -23,26 +23,28 @@
 	Revoke Storage permission
 	Grant Storage permission again
 		
-  2-2. $ termux-setup-storage
+  2-2. storage setup termux - 실행 후 아래 명령어 실행 하면 storage 폴더가 연결됨
+       $ termux-setup-storage
   
   2-3. $ pkg update && pkg upgrade
   
-    위 명령어 실행 시  아래와 같은 에러 문구 출력되며 설치 되지 않는 경우 (android+7)
-    https://github.com/termux/termux-packages/issues/6726 내용 참고 하여 termux-change-repo 명령어로 repo 설정 
-    하거나 아래 명령어 실행하여 문제되는 repo 제거 - repo 설정 변경 추천 
-    pkg remove game-repo
-    pkg remove science-repo
-    pkg update 
-    
-    Err:5 https://dl.bintray.com/grimler/game-packages-24 games Release
+	위 명령어 실행 시  아래와 같은 에러 문구 출력되며 설치 되지 않는 경우 (android+7)
+	https://github.com/termux/termux-packages/issues/6726 내용 참고 하여 termux-change-repo 명령어로 repo 설정 
+	하거나 아래 명령어 실행하여 문제되는 repo 제거 - repo 설정 변경 추천 
+	pkg remove game-repo
+	pkg remove science-repo
+	pkg update 
+
+	Err:5 https://dl.bintray.com/grimler/game-packages-24 games Release
 	  403  Forbidden
-    Err:6 https://dl.bintray.com/grimler/science-packages-24 science Release
+	Err:6 https://dl.bintray.com/grimler/science-packages-24 science Release
 	  403  Forbidden
-    Reading package lists... Done
+	Reading package lists... Done
+
+	참고 :pkg 명령어 사용법 -> https://admion.net/port-and-pkg/
     
-    참고 :pkg 명령어 사용법 -> https://admion.net/port-and-pkg/
-    
-  2-4. $ termux-change-repo  
+        
+  2-4. $ termux-change-repo ( 2-3 단계 설치 시 문제 없으면 skip )
   
   2-5. $ pkg install vim
   
@@ -58,6 +60,8 @@
 3.Install Andronix (google player) 
 
 4.Install bVNC: Secure VNC Viewer (google player)
+
+----------------------------------------------------
 
 5.Install ubuntu
   5-1. Termux execute
