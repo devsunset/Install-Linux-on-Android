@@ -67,6 +67,7 @@
   5-1. Termux execute
   5-2. $ mkdir ubuntu  
   5-3. $ cd ubuntu
+    Andronix v6.0.0 기준
    (Andronix execute -> Ubuntu -> Proceed -> Ubuntu 20.04 -> Install ->  Window Managers -> Open Box : Open Termux 선택시 아래 command copy 됨)
     요구 조건에 맞게 취향 대로 선택하여 설치 진행 해도 되나 위의 설치 요건이 가장 적당 한 듯 함
   5-4. $ pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu20/ubuntu20-openbox.sh -O ubuntu20-openbox.sh && chmod +x ubuntu20-openbox.sh && bash ubuntu20-openbox.sh
