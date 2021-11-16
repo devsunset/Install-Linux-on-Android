@@ -107,15 +107,38 @@
 	
 	
    6-9. vncserver 해상도 설정 (접속 환경에 맞는 해상도로 조정)
-   	vi .profile 하단에 아래 구문 추가 
-	$ xrandr -s 1920x1080
+   	bVNC로 접속 해 보면 환경이 다르므로 해상도가 화면에 꽉차지 않게 출력 됨
+        최대한 해상도 맞추려면 터미널 창을 실행 후 xrandr 명령어를 입력 해 봄 
+	그럼 아래와 같이 현재 해상도 및 지원가능 해상도 리스트가 출력됨
+	Screen 0: minimum 32 x 32, current 1920 x 1080, maximum 32768 x 32768
+	VNC-0 connected 1920x1080+0+0 0mm x 0mm
+	   1900x1200     60.00 +
+	   1920x1200     60.00  
+	   1920x1080     60.00* 
+	   1600x1200     60.00  
+	   1680x1050     60.00  
+	   1400x1050     60.00  
+	   1360x768      60.00  
+	   1280x1024     60.00  
+	   1280x960      60.00  
+	   1280x800      60.00  
+	   1280x720      60.00  
+	   1024x768      60.00  
+	   800x600       60.00  
+	   640x480       60.00  
+	
+	
+	모니터에 최대한 맞는 해상도 값 ]순번 위에서 부터 0부터 시작 아래 값은 xrandr -s 1920x1080 (2 번째 해당)]
+        값으로 .vnc/xstartup 파일 하단에 입력 
+	
+	$ xrandr -s 2
 	
 	=======================================
 		
-   	ex) .profile 파일 최종 수정 내용 
+   	ex) .profile 파일 최종 수정 내용 - 맨 하단에 2줄 추가  
 	vncserver-stop && vncserver-start
 	/root/.vnc/xstartup
-	xrandr -s 1920x1080
+	
 	
 	ex) .vnc/xstartup 파일 최종 수정 내용 
 	root@localhost:~/.vnc# more xstartup
@@ -126,9 +149,14 @@
 	XAUTHORITY=~/.Xauthority
 	export XAUTHORITY
 	dbus-launch openbox
-	#dbus-launch cairo-dock  (주석처리)
+	
+        # 아래 3줄이 수정 및 추가 내역 
+	#dbus-launch cairo-dock 
 	nohup cairo-dock 1>/dev/null 2>&1 &
+	xrandr -s 2
+	
 	feh --bg-fill /usr/share/wallpaper.jpg
+	
 	
 7.connect bVNC
    localhost  5901
