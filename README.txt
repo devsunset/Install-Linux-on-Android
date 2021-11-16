@@ -175,17 +175,30 @@
 	alias pip=pip3
 	TZ='Asia/Seoul'; export TZ
 	
+        아래 apt install 명령어 실행시 오류가 발생 하면 udisks2.postinst 파일 삭제 후 dpkg --configure -a 명령어 실행 후 다시 시도 
+	#Since udisks2 is not usable by proot. remove the corresponding file:
+	$ rm -rf /var/lib/dpkg/info/udisks2.postinst
+	#And
+	$ dpkg --configure -a
+	#Udisks2 manages the Disk which is not useable in proot and would cause permission denials
+	
 	(선택사항)
 	우분투 20에서 zsh 설정하고 oh my zsh 설치하기
 	https://jkim83.tistory.com/136
 	
 	sudo passwd 명령어로 패스워드 우선 설정 
 	$ sudo apt install zsh -y && chsh -s `which zsh`	
-	chsh:PAM authentication failed 오류 발생시 해결방법
-	$ sudo vim /etc/pam.d/chsh
-	auth required pam_shells.so 주석처리
-	sudo chsh $USER -s $(which zsh)
+		chsh:PAM authentication failed 오류 발생시 해결방법
+		$ sudo vim /etc/pam.d/chsh
+		auth required pam_shells.so 주석처리
+		sudo chsh $USER -s $(which zsh)
+		
+	chsh -s /bin/zsh root
 	로그아웃, 로그인
+	
+ 	apt install curl 
+	apt install git
+	
 	oh-my-zsh 설치
 	$ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 	
@@ -256,7 +269,6 @@
 			
    8-2. * apt install <program> 설치
         apt install ssh
-	
         apt install firefox
 	apt-get install libreoffice
 	apt install openjdk-11-jdk
