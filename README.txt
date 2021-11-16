@@ -67,38 +67,24 @@
   5-1. Termux execute
   5-2. $ mkdir ubuntu  
   5-3. $ cd ubuntu
-  5-4. $ pkg update -y && pkg install curl proot tar -y && curl https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu20/ubuntu20-xfce.sh | bash
-    (Andronix execute -> Ubuntu -> Install -> Ubuntu 20.04 -> XFCE : command copy)
-        
-6.Install Openbox 
-  6-1. Termux execute
-  6-2. $ cd ubuntu
-  6-3. $ pkg update -y && pkg install curl proot tar -y && curl https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu20/ubuntu20-openbox.sh | bash
-    (Andronix execute -> Ubuntu -> Install -> Ubuntu 20.04 -> Window Manager -> Openbox : command copy)
-  6-4. $ ./start-ubuntu20.sh
-  6-5. # openbox.sh (chmod 755)
-  6-7. # ./openbox.sh
-   	cf) 설치 중 오류 발생 시 아래의 dns 정보 수정
-	    - dns setting
-	    - vi /etc/resolv.conf
-	    nameserver 1.1.1.1
-	    nameserver 8.8.8.8
-	    nameserver 8.8.4.4
-  - 설치 종료 시점 vncserver 패스워드 설정
+   (Andronix execute -> Ubuntu -> Proceed -> Ubuntu 20.04 -> Install ->  Window Managers -> Open Box : Open Termux 선택시 아래 command copy 됨)
+    요구 조건에 맞게 취향 대로 선택하여 설치 진행 해도 되나 위의 설치 요건이 가장 적당 한 듯 함
+  5-4. $ pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu20/ubuntu20-openbox.sh -O ubuntu20-openbox.sh && chmod +x ubuntu20-openbox.sh && bash ubuntu20-openbox.sh
   
-7. ubuntu vi 설치 및 .vnc 접속 환경 설정 
-   7-1. $ cd ubuntu
-   7-2. $ ./start-ubuntu20.sh
-   7-3. # apt update
-   7.4. # apt install vim
-   7-5. $ vi vnc.sh 파일 생성하여 아래 명령어 넣어 실행 권한 부여
+  
+6. ubuntu vi 설치 및 .vnc 접속 환경 설정 
+   6-1. $ cd ubuntu
+   6-2. $ ./start-ubuntu20.sh
+   6-3. # apt update
+   6.4. # apt install vim
+   6-5. $ vi vnc.sh 파일 생성하여 아래 명령어 넣어 실행 권한 부여
           vncserver-stop && vncserver-start
           chmod 755 vnc.sh
-   7-6. $ ./vnc.sh (vnc 서비스 시작)   
+   6-6. $ ./vnc.sh (vnc 서비스 시작)   
    	위와 같이 수동 실행 하거나 
    	vi ~/.profile 파일 하단에 아래 구문 추가 하여 자동 실행 처리 
    	vncserver-stop & vncserver-start 
-   7-7. vnc 접속 시 cairo-dock 자동 실행 오류 해결법
+   6-7. vnc 접속 시 cairo-dock 자동 실행 오류 해결법
 	vnc 접속 시 접속은 되나 검정 바탕화면에 cairo-dock 자동실행이 안되는 경우 
 	
 	vi ~/.profile 파일 맨 마직막 부분에 아래 두 구문 추가
@@ -107,7 +93,7 @@
 	nohup cairo-dock 1>/dev/null 2>&1 &
 	/root/.vnc/xstartup
 	
-   7-8. vncserver 해상도 설정 (접속 환경에 맞는 해상도로 조정)
+   6-8. vncserver 해상도 설정 (접속 환경에 맞는 해상도로 조정)
    	vi .profile 하단에 아래 구문 추가 
 	$ xrandr -s 1920x1080
 	
@@ -131,15 +117,15 @@
 	#dbus-launch cairo-dock  (주석처리)
 	feh --bg-fill /usr/share/wallpaper.jpg
 	
-8.connect bVNC
+7.connect bVNC
    localhost  5901
    user_id  : root 계정 (우분투 계정)
    user_pw  : openbox 설치 중 설정 한 vncserver 패스워드 값
    
    * 접속 후 cairo-dock 테마 변경 및 메뉴 구성 취향에 맞게 설정 
     
-9. Ubuntu 기본 환경 설정 및 개발 프로그램 설치 (arm 버젼으로 설치해야 함)
-   9-0. .bashrc 파일에 아래 내용 추가 
+8. Ubuntu 기본 환경 설정 및 개발 프로그램 설치 (arm 버젼으로 설치해야 함)
+   8-0. .bashrc 파일에 아래 내용 추가 
         $ vi ~/.bashrc
 	alias cls='clear'
 	alias python='python3'
@@ -181,7 +167,7 @@
 	TZ='Asia/Seoul'; export TZ
 	
    
-   9-1. 한글 지원 폰트 설치 - 글꼴 설치 한다고 한글입력 처리등이 되지는 않음 (한글 적용 시도 했지만 적용이 안됨 - 문제점)
+   8-1. 한글 지원 폰트 설치 - 글꼴 설치 한다고 한글입력 처리등이 되지는 않음 (한글 적용 시도 했지만 적용이 안됨 - 문제점)
         * 나눔글꼴 설치
         sudo apt-get install fonts-nanum   (해당 내용 설치 하면 chromium 한글깨짐 해결됨)
 	
@@ -225,7 +211,7 @@
 	chromium ,vscode ,intellj 등 에서 동작 안함 100% 되지는 않는듯 함 
 	우선 일부라도 된다는 거에 만족 혹시 완벽한 방법 찾으면 내용 수정 하겠음
 			
-   9-2. * apt install <program> 설치
+   8-2. * apt install <program> 설치
         apt install ssh
 	
         apt install firefox
@@ -242,7 +228,7 @@
 	$ git config --global credential.helper store
 	$ git config --list
 		
-   9-3. * 다운로드 설치
+   8-3. * 다운로드 설치
   	- vscode 
 	https://code.visualstudio.com/
 	Other platform > ARM64 버젼 deb 파일 다운로드 후 dpkg 명령어로 설치 
