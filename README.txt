@@ -238,6 +238,7 @@
 	* OpenBox Configuration Manager 창 실행 후 
 	Appearance 탭 선택 후 글꼴 모두 D2Coding 으로 설정 	
 	
+	* apt install ibus-hangul
 	
 	* 한글 설정 (아쉽게도 100%로 지원은 안되는 듯 함)
 	Application - Settings - ISus Preferences 실행	
@@ -255,7 +256,7 @@
 	terminal 에서 아래 명령어 실행 
 	$ ibus-setup-hangul
 	Hangul toggle key 항목에 Add버튼을 누른 후 Control + Alt + space 키를 눌러 한영 전환키를 추가 합니다.
-	(중요 - 실제 전환은 Control+Alt+spce 로 동작이됨 위에서 설정한 Keyboard Shortcuts로 안됨 동일한 값으로 설정하면 동작 안함 ㅠㅠ)
+	(중요 - 실제 전환은 Control+Alt+spce 로 동작이됨 위에서 설정한 Keyboard Shortcuts로 안됨 동일한 값으로 설정하면 동작 안함)
 	
 	IBus daemon 자동 실행 설정
 	~/.vnc/xstartup 파일에 아래 내용을 추가 해 줍니다.
