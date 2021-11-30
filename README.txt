@@ -85,7 +85,7 @@
    6-6. $ ./vnc.sh (vnc 서비스 시작)   
    	위와 같이 수동 실행 하거나 
    	vi ~/.profile 파일 하단에 아래 구문 추가 하여 자동 실행 처리 
-   	vncserver-stop & vncserver-start 	
+   	vncserver-stop && vncserver-start 	
 	
    6-7. connect bVNC 접속 
 	   localhost  5901
@@ -172,7 +172,7 @@
         $ vi ~/.bashrc
 	alias cls='clear'
 	alias python='python3'
-	alias pip=pip3
+	alias pip='pip3'
 	TZ='Asia/Seoul'; export TZ
 	
         아래 apt install 명령어 실행시 오류가 발생 하면 udisks2.postinst 파일 삭제 후 dpkg --configure -a 명령어 실행 후 다시 시도 
