@@ -276,6 +276,25 @@
 	sudo apt install python3-pip  (python3는 기본 설치 되어 있으나 pip3는 설치 안되어 있음으로 설치)
 	apt install nodejs
 	apt install npm
+	
+	node.js, npm 버전
+	nodejs -v
+	npm -v
+
+	node.js 업그레이드
+	먼저, 강제로 캐시를 삭제한다
+	sudo npm cache clean --force
+
+	다음으로 n 모듈을 설치한다
+	sudo npm install -g n
+
+	n 모듈을 이용하여 Node.js를 설치한다.
+	sudo n stable
+
+	npm 업그레이드
+	npm으로 npm을 설치하면 된다.
+	sudo npm install -g npm
+
 	apt install git
 	
 	git 사용자 등록 및 인증정보 자동 저장
