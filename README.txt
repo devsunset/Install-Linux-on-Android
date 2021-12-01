@@ -79,7 +79,7 @@
    6-2. $ ./start-ubuntu20.sh
    6-3. # apt update
    6.4. # apt install vim
-   6-5. $ vi vnc.sh 파일 생성하여 아래 명령어 넣어 실행 권한 부여
+   6-5. $ vi vnc.sh 파일 생성하여 아래 명령어 넣어 실행 권한 부여 (vnc 재시작 사용안할꺼면 별도로 생성할 필요 없음)
           vncserver-stop && vncserver-start
           chmod 755 vnc.sh	  
    6-6. $ ./vnc.sh (vnc 서비스 시작)   
@@ -156,6 +156,8 @@
 	xrandr -s 2
 	
 	feh --bg-fill /usr/share/wallpaper.jpg
+	
+   6.10 /etc/hosts 파일에 127.0.0.1 localhost 추가 
 	
 	
 7.connect bVNC
