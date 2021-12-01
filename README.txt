@@ -343,3 +343,12 @@
 	/workspace/program 경로에 
 	tar -zxvf 다운로드파일명 명령어로 압축 해제
 	/workspace/program/dbeaver/dbeaver  실행
+	
+	-sublime
+	$ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+	$ sudo apt-get install apt-transport-https
+	$ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+	$ sudo apt update && sudo apt install sublime-text
+	
+	
+	
