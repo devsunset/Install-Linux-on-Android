@@ -352,3 +352,41 @@
 	
 	
 	
+	
+	안드로이드 12버젼에서는 max_phantom_processes 프로세스 설정값이 default 32로 설정 되어 있고
+	그에 따라 여러 프로세스 실행시 아래와 같은 메세지 출력되면 termux가 종료 당함 
+	[Process completed (signal 9) - press Enter]
+
+
+	관련 Link
+	https://gist.github.com/agnostic-apollo/dc7e47991c512755ff26bd2d31e72ca8#how-to-disable-the-phantom-processes-killing
+
+	https://youtu.be/tB7b-YCSghQ
+
+	조치방법
+
+	--- tool download
+	https://developer.android.com/studio/releases/platform-tools?hl=ko
+
+	압축 해제후 해당 디렉토리로 이동 cmd창에서 아래 명령어 실행
+
+	adb start-server 명령어 실행 후 아래 명령어 순서대로 실행 
+
+	-- get 
+	adb shell "/system/bin/dumpsys activity settings"
+	adb shell "/system/bin/dumpsys activity settings | grep max_phantom_processes"
+	adb shell "/system/bin/device_config get activity_manager max_phantom_processes"
+
+	-- set
+	adb shell "/system/bin/device_config put activity_manager max_phantom_processes 2147483647" 
+	adb shell "/system/bin/device_config set_sync_disabled_for_tests persistent; /system/bin/device_config put activity_manager max_phantom_processes 2147483647"  
+	adb shell "/system/bin/device_config set_sync_disabled_for_tests none"  
+	adb shell "/system/bin/device_config is_sync_disabled_for_tests"  
+
+	-- get
+	adb shell "/system/bin/dumpsys activity settings | grep max_phantom_processes"
+	adb shell "/system/bin/device_config get activity_manager max_phantom_processes"
+	adb shell "/system/bin/settings get global device_config_sync_disabled"   
+
+	
+	
