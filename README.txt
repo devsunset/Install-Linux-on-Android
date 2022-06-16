@@ -389,4 +389,4 @@
 	adb shell "/system/bin/settings get global device_config_sync_disabled"   
 
 	
-	
+	https://m.dcinside.com/board/tabletpc/898108
