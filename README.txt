@@ -378,11 +378,11 @@
 	adb shell "/system/bin/device_config get activity_manager max_phantom_processes"
 
 	-- set
-	adb shell "/system/bin/device_config put activity_manager max_phantom_processes 2147483647" 
 	adb shell "/system/bin/device_config set_sync_disabled_for_tests persistent; /system/bin/device_config put activity_manager max_phantom_processes 2147483647"  
-	adb shell "/system/bin/device_config set_sync_disabled_for_tests none"  
-	adb shell "/system/bin/device_config is_sync_disabled_for_tests"  
-
+	
+	-- recovery
+	adb shell "/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32"
+	
 	-- get
 	adb shell "/system/bin/dumpsys activity settings | grep max_phantom_processes"
 	adb shell "/system/bin/device_config get activity_manager max_phantom_processes"
