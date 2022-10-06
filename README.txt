@@ -390,3 +390,15 @@
 
 	
 	https://m.dcinside.com/board/tabletpc/898108
+	
+	
+	
+	
+	
+	
+	# 모니터링 프로그램  
+	sudo apt-get install htop
+
+	
+	
+	
