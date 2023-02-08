@@ -309,11 +309,10 @@
   	- vscode 
 	https://code.visualstudio.com/
 	Other platform > ARM64 버젼 deb 파일 다운로드 후 dpkg 명령어로 설치 
-	ex) dpkg -i code_1.58.1-1626157156_arm64.deb (해당 버젼 실행 문제 - --no-sandbox 관련 에러 발생 )
+	ex) dpkg -i code_1.58.1-1626157156_arm64.deb 
 		
-	최신버젼 설치시 실행 실행이 안되는 문제 발생 되는 경우 아래 링크로 이전 버젼 다운 받아 설치 진행 
-	https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
-	ex)https://update.code.visualstudio.com/1.50.1/linux-deb-arm64/stable
+	설치 후 실행이  안되는 경우 아래 명령어를 사용해 실행
+	code --user-data-dir="/workspace/program/vscode" --no-sandbox
 	
 	설치 도중 libxss1 관련 에러 발생시 아래 명령어로 관련 모듈 설치 후 재 진행
 	apt install libxss1 
