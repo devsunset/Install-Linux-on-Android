@@ -243,7 +243,7 @@
 	* apt install ibus-hangul
 	
 	* 한글 설정 (아쉽게도 100%로 지원은 안되는 듯 함)
-	Application - Settings - ISus Preferences 실행	
+	Application - Settings - IBus Preferences 실행	
 	General 탭에서 
 	Keyboard Shortcuts 에서 <Ctrl><Shift>space 설정 
 	Use custom fonts 선택 하고 글꼴을 D2Coding Regular 선택
