@@ -1,4 +1,4 @@
-# androidDeviceConvertToNoteBook
+# Install Linu on Android
 
 ############################################################
 
