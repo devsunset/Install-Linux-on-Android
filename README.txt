@@ -1,4 +1,4 @@
-# Install Linu on Android
+# Install Linux on Android
 
 ############################################################
 
